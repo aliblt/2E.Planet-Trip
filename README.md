@@ -33,3 +33,4 @@ Reference Link to a Similar Game:
 
 Who wants to be a millionaire:  http://www.puffgames.com/whowantstobeamillionaire/
 
+Meeting Logs: https://docs.google.com/document/d/19Y6HrAa_fDvwYf8_2WBKLZEgST08Y-a-xasY4h3wSpU/edit?usp=sharing
