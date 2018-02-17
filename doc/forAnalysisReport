@@ -1,0 +1,43 @@
+Distribution of work for Analysis Report: 
+
+1-Introduction: Ali Bulut
+2- Game Overview: Serdar Atalay
+2.1 Gameplay
+2.2 Categories
+2.3 Questions
+2.4 Players Initial Items
+2.5 Lifelines
+2.5.1 Ask the Audience
+2.5.2 Phone a Friend
+2.5.3 50-50
+2.6 Settings
+3- Functional Requirements Specification: Aylin Çakal
+3.1 Play Game
+3.2 Select the Level
+3.3 How to Play
+3.4 Options (Settings)
+3.5 Credits
+4- Non-Functional Requirements Specification: Aylin Çakal
+4.1 Game Performance
+4.2 User-Friendly Interface
+4.3 Clarity of the Questions & Answers
+4.4 Challenge of the Game
+4.5 Extendibility
+5- System Models
+5.1 Use Case Model: Serdar Taşkafa
+5.2 Dynamic Models
+5.2.1 Sequence Diagram: Serdar Atalay
+5.2.2 Activity Diagram: Aylin Çakal - Serdar Atalay
+5.3 Object and Class Model: Ali Bulut
+5.4 User Interface: Navigational Paths and Screen Mock-ups: Aylin Çakal
+5.4.1 Navigational Path
+5.4.2 Screen Mockups and Icons
+5.4.2.1 Main Menu Mockup Screen
+5.4.2.2 Level Selection Mockup Screen
+5.4.2.3 Game Mockup Screen
+5.4.2.4 Results Panel Mockup Screen
+5.2.4.5 How to Play Mockup Screen
+5.2.4.6 Options Mockup Screen
+5.2.4.7 Credits Mockup Screen
+6- Glossary & References
+
