@@ -1,4 +1,4 @@
-Quiz Game for CS 319 Project
+Planet Trip for CS 319 Project
 
 Project Name: Planet Trip
 
