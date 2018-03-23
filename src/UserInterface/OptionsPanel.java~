@@ -1,0 +1,41 @@
+/**
+ * @Author: Aylin Çakal
+ * Date:    23/03/18
+ * Class: OptionsPanel
+ * */
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.event.*;
+import javax.swing.plaf.basic.BasicSliderUI;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+
+
+public class OptionsPanel extends JPanel
+{
+  private Image background;
+  private JButton returnMenuButton;
+  private JButton applyButton;
+  private JButton unmuteButton;
+  private int soundEffect;
+  private JSlider adjustingVolumeButton;
+  private CardLayout cardLayout;
+  private JPanel mainPanel;
+  
+  
+  public OptionsPanel(JPanel mainP, CardLayout cardL)
+  {
+    
+  }
+  
+}
