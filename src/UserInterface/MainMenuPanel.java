@@ -18,12 +18,22 @@ import javafx.scene.paint.Color;
 
 public class MainMenuPanel extends JPanel implements ActionListener {
 
-    private JButton howToPlayButton;
-    private JButton creditsButton;
-    private JButton optionsButton;
-    private JButton exitButton;
-    private JButton playButton;
+    public MainMenuPanel (MouseListener listener)()
+    {
+        setLayout(null);
+        setBackground(java.awt.Color.BLACK);
+        private JButton playButton = new JButton("Play");
+        private JButton howToPlayButton = new JButton("How to Play");
+        private JButton creditsButton = new JButton("Credits");
+        private JButton optionsButton = new JButton("Options");
+        private JButton exitButton = new JButton("Exit");
 
-    public MainMenuPanel (MouseListener listener)(){}
+        add (playButton);
+        add (optionsButton);
+        add (howToPlayButton);
+        add (creditsButton);
+        add (exitButton);
+
+    }
 
 }
