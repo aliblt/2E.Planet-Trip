@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class MainMenu  extends JPanel{
+public class MainMenu  extends Menu{
 
     private MainMenuPanel mainPanel;
 
