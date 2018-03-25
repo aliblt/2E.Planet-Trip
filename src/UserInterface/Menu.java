@@ -34,20 +34,23 @@ public class Menu extends JPanel{
     public Menu() {
         viewFrame = new ViewFrame(800, 600);
         currentPanel = new MainMenuPanel();
-
+        viewFrame.addView(currentPanel);
     }
 
     public void switchPanel( JPanel newPanel ){
+        viewFrame.getContentPane().remove(currentPanel);
+        viewFrame.add(newPanel);
+        viewFrame.getContentPane().invalidate();
+        viewFrame.getContentPane().validate();
         currentPanel = newPanel;
-        viewFrame.setContentPane(currentPanel);
     }
 
     public void displayOptions() {
-        viewFrame.setContentPane(optionsPanel);
+        switchPanel(optionsPanel);
     }
 
     public void displayCredits() {
-        viewFrame.setContentPane(creditsPanel);
+        switchPanel(creditsPanel);
     }
 
     public void displayResults( int score, long elapsedTime ) {
