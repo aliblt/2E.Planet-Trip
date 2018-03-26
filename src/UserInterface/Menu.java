@@ -11,19 +11,17 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 public class Menu extends JPanel{
 
-    private MenuActionListener listener;
-    private HowToPlayView howToPlayPanel;
-    private CredirsView creditsPanel;
+    //private MenuActionListener listener;
+    //private HowToPlayView howToPlayPanel;
+    //private CredirsView creditsPanel;
     private OptionsPanel optionsPanel;
     private ViewFrame viewFrame;
     private JPanel currentPanel;
-    private ResultsView resultsPanel;
-    private OptionsManager optionsManager;
+    //private ResultsView resultsPanel;
+    //private OptionsManager optionsManager;
 
     public static void main( String[] args ) {
         new Menu();
@@ -34,7 +32,7 @@ public class Menu extends JPanel{
     public Menu() {
         viewFrame = new ViewFrame(800, 600);
         currentPanel = new MainMenuPanel();
-        viewFrame.addView(currentPanel);
+        viewFrame.setContentPane(currentPanel);
     }
 
     public void switchPanel( JPanel newPanel ){
@@ -62,6 +60,7 @@ public class Menu extends JPanel{
     }
 
     public void initializeGame() {
+        viewFrame.setVisible(false);
 
     }
 }

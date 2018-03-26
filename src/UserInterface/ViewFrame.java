@@ -29,4 +29,5 @@ public class ViewFrame extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
+
 }
