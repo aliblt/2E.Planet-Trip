@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class Paddle extends GameObjects{
+public class Paddle extends GameObject{
 
     private int paddleLength;
 

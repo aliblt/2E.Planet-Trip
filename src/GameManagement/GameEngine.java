@@ -1,8 +1,12 @@
 package GameManagement;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class GameEngine {
+public class GameEngine extends GameFrame{
 
     private GameMapManager gameMapManager;
     private boolean isPaused;
@@ -10,5 +14,46 @@ public class GameEngine {
     public GameEngine() throws IOException{
         isPaused = false;
         gameMapManager = new GameMapManager();
+
     }
+
+/*    @Override
+    public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        if(keyCode==KeyEvent.VK_W || keyCode==KeyEvent.VK_UP)
+            K_UP = true;
+
+        if(keyCode==KeyEvent.VK_A || keyCode==KeyEvent.VK_LEFT)
+            K_LEFT = true;
+
+        if(keyCode==KeyEvent.VK_D || keyCode==KeyEvent.VK_RIGHT)
+            K_RIGHT = true;
+
+        if(keyCode==KeyEvent.VK_S || keyCode==KeyEvent.VK_DOWN)
+            K_DOWN = true;
+
+        //if(keyCode==KeyEvent.VK_SPACE)
+        //K_SPACE = true;
+        if(keyCode==KeyEvent.VK_SPACE)
+            spaceGame.getLevel().spacePressed();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        if(keyCode==KeyEvent.VK_W || keyCode==KeyEvent.VK_UP)
+            K_UP = false;
+
+        if(keyCode==KeyEvent.VK_A || keyCode==KeyEvent.VK_LEFT)
+            K_LEFT = false;
+
+        if(keyCode==KeyEvent.VK_D || keyCode==KeyEvent.VK_RIGHT)
+            K_RIGHT = false;
+
+        if(keyCode==KeyEvent.VK_S || keyCode==KeyEvent.VK_DOWN)
+            K_DOWN = false;
+
+        if(keyCode==KeyEvent.VK_SPACE)
+            K_SPACE = false;
+    }*/
 }

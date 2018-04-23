@@ -4,6 +4,8 @@
  * Class: SoundEngine
  * */
 
+package GameManagement;
+
 import java.io.File;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -16,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 
 
-public class SoundEngine extends GameEngine
+public class SoundEngine
 {
   //Number of sounds in the folder
   private static int NO_OF_SOUNDS = 8; //can be changed...

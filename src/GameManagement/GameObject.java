@@ -9,20 +9,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class GameObjects {
+public class GameObject {
     private float xPosition;
     private float yPosition;
     private float xSpeed;
     private float ySpeed;
     private BufferedImage objectImages;
 
-    public GameObjects(float xPosition, float yPosition, float xSpeed, float ySpeed, String imagePath ) throws IOException {
+    public GameObject(float xPosition, float yPosition, float xSpeed, float ySpeed, String imagePath ) throws IOException {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         //this.objectImages = ImageIO.read(getClass().getClassLoader().getResourceAsStream("images/paddle.png"));
-        this.objectImages = ImageIO.read(new File("images/paddle.png" ));
+        //this.objectImages = ImageIO.read(new File("images/paddle.png" ));
     }
 
     public void setxPosition(float xPosition){
