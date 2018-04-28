@@ -8,14 +8,30 @@ import java.awt.event.*;
 
 public class GameEngine extends GameFrame{
 
+
+    ////////ATTRIBUTES////////
+
     private GameMapManager gameMapManager;
-    private boolean isPaused;
+
+    private boolean paused;
+
+    private FileManager fileManager;
+
+    private GameMapManager gameMapManager;
+
+    private boolean acquiredBonusLevel;
+
+
+    ////////CONSTRUCTOR////////
 
     public GameEngine() throws IOException{
-        isPaused = false;
+        paused = false;
         gameMapManager = new GameMapManager();
 
     }
+
+
+    ////////METHODS////////
 
 /*    @Override
     public void keyPressed(KeyEvent e) {
