@@ -24,7 +24,7 @@ public class GameEngine extends GameFrame{
 
     ////////CONSTRUCTOR////////
 
-    public GameEngine() throws IOException{
+    public GameEngine(int level) throws IOException{
         paused = false;
         gameMapManager = new GameMapManager();
 
@@ -32,6 +32,24 @@ public class GameEngine extends GameFrame{
 
 
     ////////METHODS////////
+
+    public void gameLoop(){}
+
+    public boolean levelPassed(){}
+
+    public boolean hasLive(){}
+
+    public void skipNextLevel(){}
+
+    public void pauseGame(){}
+
+    public void resumeGame(){}
+
+    public void startGame(){}
+
+    public void endGame(){}
+
+    public BufferedImage getImage(){}
 
 /*    @Override
     public void keyPressed(KeyEvent e) {
