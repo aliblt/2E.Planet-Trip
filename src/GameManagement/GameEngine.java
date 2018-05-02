@@ -18,8 +18,6 @@ public class GameEngine extends GameFrame{
 
     private FileManager fileManager;
 
-    private GameMapManager gameMapManager;
-
     private boolean acquiredBonusLevel;
 
 
@@ -27,7 +25,7 @@ public class GameEngine extends GameFrame{
 
     public GameEngine(int level) throws IOException{
         paused = false;
-        gameMapManager = new GameMapManager(level);
+        this.gameMapManager = new GameMapManager(level);
 
     }
 
