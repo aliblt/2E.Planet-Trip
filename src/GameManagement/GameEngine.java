@@ -1,6 +1,7 @@
 package GameManagement;
 
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.*;
 import java.awt.*;
@@ -26,7 +27,7 @@ public class GameEngine extends GameFrame{
 
     public GameEngine(int level) throws IOException{
         paused = false;
-        gameMapManager = new GameMapManager();
+        gameMapManager = new GameMapManager(level);
 
     }
 

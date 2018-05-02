@@ -21,8 +21,7 @@ public class GameObject {
         this.yPosition = yPosition;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
-        //this.objectImages = ImageIO.read(getClass().getClassLoader().getResourceAsStream("images/paddle.png"));
-        //this.objectImages = ImageIO.read(new File("images/paddle.png" ));
+        this.objectImages = ImageIO.read(new File(imagePath));
     }
 
     public void setxPosition(float xPosition){
@@ -31,6 +30,11 @@ public class GameObject {
 
     public void setyPosition(float yPosition){
         this.yPosition = yPosition;
+    }
+
+    public void updateObjects(float xSpeed, float ySpeed) {
+        xPosition += xSpeed;
+        yPosition += ySpeed;
     }
 
     public void setxSpeed(float xSpeed){
@@ -59,5 +63,10 @@ public class GameObject {
 
     public BufferedImage getObjectImages() {
         return objectImages;
+    }
+
+    public void draw(Graphics g, float xPosition, float yPosition) {
+
+
     }
 }
