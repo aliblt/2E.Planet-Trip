@@ -40,9 +40,10 @@ public class GameObject {
         this.yPosition = yPosition;
     }
 
+
     public void updateObjects(float xSpeed, float ySpeed) {
-        xPosition += xSpeed;
-        yPosition += ySpeed;
+        this.setxSpeed(xSpeed);
+        this.setySpeed(ySpeed);
     }
 
     public void setxSpeed(float xSpeed){
