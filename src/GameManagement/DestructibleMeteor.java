@@ -14,7 +14,7 @@ public class DestructibleMeteor extends Meteor{
     public final int METEOR_SIZE_HEIGHT = 20;
 
     // Constructor
-    public DestructibleMeteor(float xPosition, float yPosition, float xSpeed, float ySpeed, String imagePath) throws IOException {
-        super(xPosition, yPosition, xSpeed, ySpeed, imagePath);
+    public DestructibleMeteor(float xPosition, float yPosition, String imagePath) throws IOException {
+        super(xPosition, yPosition, imagePath);
     }
 }

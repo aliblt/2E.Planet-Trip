@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Meteor extends GameObject{
     // Constructor
-    public Meteor(float xPosition, float yPosition, float xSpeed, float ySpeed, String imagePath) throws IOException {
-        super(xPosition, yPosition, xSpeed, ySpeed, imagePath);
+    public Meteor(float xPosition, float yPosition, String imagePath) throws IOException {
+        super(xPosition, yPosition, 0, 0, imagePath);
     }
 }

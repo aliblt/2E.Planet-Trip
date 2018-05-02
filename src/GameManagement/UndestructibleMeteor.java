@@ -13,7 +13,7 @@ public class UndestructibleMeteor extends Meteor {
     public final int METEOR_U_SIZE_HEIGHT = 20;
 
     // Constructor
-    public UndestructibleMeteor(float xPosition, float yPosition, float xSpeed, float ySpeed, String imagePath) throws IOException {
-        super(xPosition, yPosition, xSpeed, ySpeed, imagePath);
+    public UndestructibleMeteor(float xPosition, float yPosition, String imagePath) throws IOException {
+        super(xPosition, yPosition, imagePath);
     }
 }
