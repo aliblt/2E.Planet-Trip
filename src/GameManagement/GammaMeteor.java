@@ -12,7 +12,7 @@ public class GammaMeteor extends DestructibleMeteor{
     public static int SCORE_GAMMA = 300;  // Score is set to 300 as default.
 
     // Constructor
-    public GammaMeteor(float xPosition, float yPosition, String imagePath) throws IOException {
-        super(xPosition, yPosition, imagePath);
+    public GammaMeteor(float xPosition, float yPosition) throws IOException {
+        super(xPosition, yPosition, "images/gammameteor.png");
     }
 }

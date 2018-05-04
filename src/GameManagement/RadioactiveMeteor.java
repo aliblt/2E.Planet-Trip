@@ -13,7 +13,7 @@ public class RadioactiveMeteor extends DestructibleMeteor {
     public static int SCORE_RADIOACTIVE = 100;  // Score is set to 100 as default.
 
     // Constructor
-    public RadioactiveMeteor(float xPosition, float yPosition, String imagePath) throws IOException {
-        super(xPosition, yPosition, imagePath);
+    public RadioactiveMeteor(float xPosition, float yPosition) throws IOException {
+        super(xPosition, yPosition, "images/radioactivemeteor.png");
     }
 }
