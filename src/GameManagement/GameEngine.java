@@ -26,24 +26,39 @@ public class GameEngine extends GameFrame{
 
     public GameEngine(int level) throws IOException{
         paused = false;
-        gameMapManager = new GameMapManager();
+        gameMapManager = new GameMapManager(level);
 
     }
 
 
     ////////METHODS////////
 
-    public void gameLoop(){}
+    public void gameLoop(){
 
-    public boolean levelPassed(){}
+    }
 
-    public boolean hasLive(){}
+    public boolean levelPassed(){
+        return (getNoOfDestMeteors() == 0);
+    }
 
-    public void skipNextLevel(){}
+    public boolean hasLive(){
+       return (0 != getHealthValue());
+    }
 
-    public void pauseGame(){}
+    public void skipNextLevel(){
+        if (gameMapManager.getLevel() < 7)
+            gameMapManager = new GameMapManager(gameMapManager.getLevel() + 1);
+        else if (gameMapManager.getLevel() == 7)
+            endGame();
+    }
 
-    public void resumeGame(){}
+    public void pauseGame(){
+        paused = true;
+    }
+
+    public void resumeGame(){
+        paused = false;
+    }
 
     public void startGame(){}
 
