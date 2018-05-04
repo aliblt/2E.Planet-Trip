@@ -1,20 +1,19 @@
 package GameManagement;
 
+/**
+ * @author Serdar Taskafa
+ */
 public class CollisionManager {
+    // Attributes
+
+    private CollisionManager collisionManager;
 
 
-    ////////ATTRIBUTES////////
-
-    //toDo: private CollisionManager collisionManager
-
-
-    ////////CONSTRUCTOR////////
-
-    public CollisionManager(){}//toDo: Fill the constructor
+    // Constructor
+    public CollisionManager(){} // Empty constructor
 
 
-    ////////METHODS////////
-
+    // Methods
     //Checks the collision between ball and meteor
     public boolean checkMeteorBallCollision(Meteor meteor, Ball ball){}
 

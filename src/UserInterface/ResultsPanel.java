@@ -1,4 +1,4 @@
-package update2;
+package UserInterface;
 
 public class ResultsPanel {
 	private JButton returnMenuButton;

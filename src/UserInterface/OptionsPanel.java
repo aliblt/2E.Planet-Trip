@@ -3,7 +3,7 @@
  * Date:    23/03/18
  * Class: OptionsPanel
  * */
-package planetTrip.UserInterface;
+package UserInterface;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import javax.swing.*;

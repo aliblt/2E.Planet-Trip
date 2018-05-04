@@ -1,4 +1,6 @@
-package update2;
+package UserInterface;
+
+import GameManagement.GameEngine;
 
 public class GameFrame {
 	private GameEngine gameEngine;
