@@ -10,7 +10,7 @@ public class CollisionManager {
 
     ////////CONSTRUCTOR////////
 
-    public CollisionManager(){}//toDo: Fill the contructtor
+    public CollisionManager(){}//toDo: Fill the constructor
 
 
     ////////METHODS////////
