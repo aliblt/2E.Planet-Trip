@@ -1,6 +1,4 @@
-package UserInterface;
-
-import javax.swing.*;
+package update2;
 
 public class PauseMenuPanel {
 	private JButton continueButton;

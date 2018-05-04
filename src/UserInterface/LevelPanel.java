@@ -1,13 +1,9 @@
-package UserInterface;
-
-import GameManagement.GameEngine;
-
-import javax.swing.*;
+package update2;
 
 public class LevelPanel {
 
 	private int[] levels;
-	private String[] levelName;
+	private string[] levelName;
 	private JButton[] levelButtons;
 	private int selectedLevel;
 	private JButton startButton;

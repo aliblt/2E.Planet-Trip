@@ -1,4 +1,4 @@
-package UserInterface;
+package update2;
 
 public class PauseMenu {
 private PauseMenuPanel pausePanel;

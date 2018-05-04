@@ -10,9 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-/**
- * @author Serdar Taskafa
- */
 public class Paddle extends GameObject{
 
     private int paddleLength;

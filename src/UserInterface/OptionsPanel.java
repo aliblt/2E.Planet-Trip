@@ -1,9 +1,9 @@
 /**
- * @Author: Aylin ï¿½akal
+ * @Author: Aylin Çakal
  * Date:    23/03/18
  * Class: OptionsPanel
  * */
-package UserInterface;
+package planetTrip.UserInterface;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import javax.swing.*;

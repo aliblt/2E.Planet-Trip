@@ -1,8 +1,4 @@
-package UserInterface;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
+package update2;
 
 public class ViewFrame {
 
@@ -27,7 +23,7 @@ public Graphics getGraphics()
 {
 	
 }
-public ArrayList<Integer> getScreenSize()
+public ArrayList<int> getScreenSize()
 {
 	
 }
