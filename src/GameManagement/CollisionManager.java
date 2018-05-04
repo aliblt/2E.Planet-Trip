@@ -6,7 +6,7 @@ package GameManagement;
  */
 public class CollisionManager {
     // Attributes
-    private CollisionManager collisionManager;
+    private static CollisionManager collisionManager;
 
 
     // Constructor
@@ -15,7 +15,7 @@ public class CollisionManager {
 
     // Methods
     // The Singleton method
-    public CollisionManager getCollisionManager() {
+    public static CollisionManager getCollisionManager() {
         if (collisionManager == null) {
             collisionManager = new CollisionManager();
         }

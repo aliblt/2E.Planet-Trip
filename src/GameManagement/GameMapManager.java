@@ -22,12 +22,14 @@ public class GameMapManager {
     //private ArrayList<Bonus> activeBonuses; //NEW!
     private BufferedImage backgroundImage;
     private GameEngine gameEngine;
+    private CollisionManager collisionManager;
 
     //first initialization of the level
     public GameMapManager( int level ) {//throws IOException{
         this.level = level;
 
         this.replaceMeteors();
+        this.collisionManager = CollisionManager.getCollisionManager();
 
         // initializing user paddle
         //userPaddle = new Paddle(30, 400, 20);
@@ -70,7 +72,7 @@ public class GameMapManager {
         // ball vs meteor
         for( Ball b : this.balls )
             for( Meteor m : this.meteors ) {
-                if( checkMeteorBallCollision( m, b ) ) {
+                if( collisionManager.checkMeteorBallCollision( m, b ) ) {
 
                 }
             }
@@ -82,15 +84,15 @@ public class GameMapManager {
 
         // ball vs paddle
         for( Ball b : this.balls ) {
-            checkPaddleBallCollision( userPaddle, b );
+            collisionManager.checkPaddleBallCollision( userPaddle, b );
 
             if( enemyPaddle != null )
-                checkPaddleBallCollision( enemyPaddle, b );
+                collisionManager.checkPaddleBallCollision( enemyPaddle, b );
         }
 
         // paddle vs bonus
         for( Bonus b : this.activeBonuses ) {
-            if ( checkPaddleBonusCollision( userPaddle, b ) ) {
+            if ( collisionManager.checkPaddleBonusCollision( userPaddle, b ) ) {
 
             }
         }
