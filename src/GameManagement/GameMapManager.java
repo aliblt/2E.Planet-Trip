@@ -1,3 +1,8 @@
+/*
+    @author: Ali Bulut
+    Map logic
+ */
+
 package GameManagement;
 
 import java.awt.image.BufferedImage;
