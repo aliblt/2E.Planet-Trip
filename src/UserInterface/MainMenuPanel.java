@@ -1,4 +1,4 @@
-package update2;
+package UserInterface;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

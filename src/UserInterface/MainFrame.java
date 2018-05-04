@@ -1,4 +1,4 @@
-package update2;
+package UserInterface;
 
 import java.io.FileNotFoundException;
 import javax.swing.JFrame;
