@@ -8,7 +8,7 @@ import java.io.IOException;
  */
 
 public class Laser extends GameObject{
-    public Laser(float xPosition, float yPosition, float xSpeed) throws IOException {
-        super(xPosition, yPosition, xSpeed,0, "images/laser.png");
+    public Laser(float xPosition, float yPosition, float ySpeed) throws IOException {
+        super(xPosition, yPosition, 0 ,ySpeed, "images/laser.png");
     }
 }
