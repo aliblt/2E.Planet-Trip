@@ -26,7 +26,7 @@ public class GameEngine extends GameFrame{
 
     public GameEngine(int level) throws IOException{
         paused = false;
-        gameMapManager = new GameMapManager();
+        gameMapManager = new GameMapManager(level);
 
     }
 
@@ -39,7 +39,12 @@ public class GameEngine extends GameFrame{
 
     public boolean hasLive(){}
 
-    public void skipNextLevel(){}
+    public void skipNextLevel(){
+        if (gameMapManager.getLevel() < 7)
+            gameMapManager = new GameMapManager(gameMapManager.getLevel() + 1);
+        else if (gameMapManager.getLevel() == 7)
+            endGame();
+    }
 
     public void pauseGame(){}
 
