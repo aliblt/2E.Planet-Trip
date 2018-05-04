@@ -1,4 +1,4 @@
-package update2;
+package UserInterface;
 
 public class GameFrame {
 	private GameEngine gameEngine;
