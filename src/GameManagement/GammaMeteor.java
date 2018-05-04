@@ -13,6 +13,6 @@ public class GammaMeteor extends DestructibleMeteor{
 
     // Constructor
     public GammaMeteor(float xPosition, float yPosition) throws IOException {
-        super(xPosition, yPosition, "images/gammameteor.png");
+        super(xPosition, yPosition, "images/GammaMeteor.png");
     }
 }

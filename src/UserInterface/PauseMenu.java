@@ -1,18 +1,16 @@
 package UserInterface;
 
 public class PauseMenu {
-private PauseMenuPanel pausePanel;
+    private PauseMenuPanel pausePanel;
 
-public PauseMenu()
-{
-}
+    public PauseMenu() {
+    }
 
-public void displayPauseMenu()
-{
-	
-}
+    public void displayPauseMenu() {
 
-public void resumeGame()
-{
-	
+    }
+
+    public void resumeGame() {
+
+    }
 }

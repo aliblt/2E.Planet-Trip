@@ -14,6 +14,6 @@ public class UndestructibleMeteor extends Meteor {
 
     // Constructor
     public UndestructibleMeteor(float xPosition, float yPosition) throws IOException {
-        super(xPosition, yPosition, "images/undestructiblemeteor.png");
+        super(xPosition, yPosition, "images/UndestructibleMeteor.jpg");
     }
 }

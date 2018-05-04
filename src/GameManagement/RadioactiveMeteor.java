@@ -14,6 +14,6 @@ public class RadioactiveMeteor extends DestructibleMeteor {
 
     // Constructor
     public RadioactiveMeteor(float xPosition, float yPosition) throws IOException {
-        super(xPosition, yPosition, "images/radioactivemeteor.png");
+        super(xPosition, yPosition, "images/RadioactiveMeteor.png");
     }
 }

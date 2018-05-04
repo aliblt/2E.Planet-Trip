@@ -13,6 +13,6 @@ public class BetaMeteor extends DestructibleMeteor {
 
     // Constructor
     public BetaMeteor(float xPosition, float yPosition) throws IOException {
-        super(xPosition, yPosition, "images/betameteor.png");
+        super(xPosition, yPosition, "images/BetaMeteor.png");
     }
 }

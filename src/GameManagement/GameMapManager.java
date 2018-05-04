@@ -131,31 +131,31 @@ public class GameMapManager {
 
                     //Alpha Meteor init
                     if (line.charAt(i) == 'A') {
-                        Meteor m_tmp = new AlphaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30, "./../../images/AlphaMeteor.jpg");
+                        Meteor m_tmp = new AlphaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
                         this.meteors.add(m_tmp);
                     }
 
                     //Beta Meteor init
                     else if (line.charAt(i) == 'B') {
-                        Meteor m_tmp = new BetaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30, "./../../images/BetaMeteor.jpg");
+                        Meteor m_tmp = new BetaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
                         this.meteors.add(m_tmp);
                     }
 
                     //Gamma Meteor init
                     else if (line.charAt(i) == 'G') {
-                        Meteor m_tmp = new GammaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30, "./../../images/GammaMeteor.jpg");
+                        Meteor m_tmp = new GammaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
                         this.meteors.add(m_tmp);
                     }
 
                     //Radiactive Meteor init
                     else if (line.charAt(i) == 'R') {
-                        Meteor m_tmp = new RadioactiveMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30, "./../../images/RadioactiveMeteor.jpg");
+                        Meteor m_tmp = new RadioactiveMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
                         this.meteors.add(m_tmp);
                     }
 
                     //Undestructable Meteor init
                     else if (line.charAt(i) == 'U') {
-                        Meteor m_tmp = new UndestructibleMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30, "./../../images/UndestructibleMeteor.jpg");
+                        Meteor m_tmp = new UndestructibleMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
                         this.meteors.add(m_tmp);
                     }
                 }
