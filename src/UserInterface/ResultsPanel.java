@@ -1,5 +1,7 @@
 package UserInterface;
 
+import javax.swing.*;
+
 public class ResultsPanel {
 	private JButton returnMenuButton;
 	private JTextPanel text;

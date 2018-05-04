@@ -1,9 +1,13 @@
 package update2;
 
+import GameManagement.GameEngine;
+
+import javax.swing.*;
+
 public class LevelPanel {
 
 	private int[] levels;
-	private string[] levelName;
+	private String[] levelName;
 	private JButton[] levelButtons;
 	private int selectedLevel;
 	private JButton startButton;
