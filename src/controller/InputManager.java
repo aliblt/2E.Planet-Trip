@@ -1,7 +1,23 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 package controller;
 
-public class InputManager {
+public class InputManager implements KeyListener {
 
+    public void keyPressed (KeyEvent event){
+        switch (event.getKeyCode()){
+            case KeyEvent.VK_LEFT:
+                //move the paddle left
+                break;
+            case KeyEvent.VK_RIGHT:
+                //move the paddle right
+                break;
+            case KeyEvent.VK_SPACE:
+                //throw ball in the beginning
+                break;
+        }
+    }
 
 
     /*    @Override
