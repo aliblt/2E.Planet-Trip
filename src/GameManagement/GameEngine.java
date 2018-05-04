@@ -33,11 +33,17 @@ public class GameEngine extends GameFrame{
 
     ////////METHODS////////
 
-    public void gameLoop(){}
+    public void gameLoop(){
 
-    public boolean levelPassed(){}
+    }
 
-    public boolean hasLive(){}
+    public boolean levelPassed(){
+        return (getNoOfDestMeteors() == 0);
+    }
+
+    public boolean hasLive(){
+       return (0 != getHealthValue());
+    }
 
     public void skipNextLevel(){
         if (gameMapManager.getLevel() < 7)
@@ -46,9 +52,13 @@ public class GameEngine extends GameFrame{
             endGame();
     }
 
-    public void pauseGame(){}
+    public void pauseGame(){
+        paused = true;
+    }
 
-    public void resumeGame(){}
+    public void resumeGame(){
+        paused = false;
+    }
 
     public void startGame(){}
 
