@@ -12,6 +12,7 @@ public class GameEngine extends GameFrame{
 
     ////////ATTRIBUTES////////
 
+    //This attribute is for creating GameMapManager object.
     private GameMapManager gameMapManager;
 
     private boolean paused;
