@@ -8,7 +8,7 @@ public class PauseMenuPanel {
 	private JButton howToPlayButton;
 	private JButton exitButton;
 	
-public PauseMenuPanel(MenuActionListener listener)
+//public PauseMenuPanel(MenuActionListener listener)
 {
 	
 }

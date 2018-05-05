@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 public class CreditsPanel {
 	private JButton returnMenuButton;
 	
-	public CreditsPanel(MenuActionListener listener)
+	//public CreditsPanel(MenuActionListener listener)
 	{
 		
 	}

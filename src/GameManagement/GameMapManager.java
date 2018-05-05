@@ -5,9 +5,13 @@
 
 package GameManagement;
 
+import UserInterface.*;
+
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
+import java.awt.*;
+import javax.swing.*;
 
 public class GameMapManager {
 
@@ -15,6 +19,7 @@ public class GameMapManager {
     private static final int SCREEN_HEIGTH = 900;
 
     private int level;
+    private int noOfDestMeteors;
     private int noOfLives;
     private int score;
     private long elapsedTime;
@@ -23,21 +28,23 @@ public class GameMapManager {
     private Paddle enemyPaddle;
     private ArrayList<Meteor> meteors;
     private ArrayList<Ball> balls;
-    //private ArrayList<Bonus> bonuses;
-    //private ArrayList<Bonus> activeBonuses; //NEW!
+    private ArrayList<Bonus> bonuses;
+    private ArrayList<Bonus> activeBonuses; //NEW!
     private BufferedImage backgroundImage;
     private GameEngine gameEngine;
     private CollisionManager collisionManager;
 
     //first initialization of the level
-    public GameMapManager( int level ) {//throws IOException{
+    public GameMapManager( int level ) throws IOException{
         this.level = level;
 
         this.replaceMeteors();
         this.collisionManager = CollisionManager.getCollisionManager();
 
         // initializing user paddle
-        //userPaddle = new Paddle(30, 400, 20);
+        userPaddle = new Paddle(700, 710, 20);
+        balls = new ArrayList<Ball>();
+        balls.add(new Ball(750, 679,0, 0, 3) );
         // ToDo initialize all necessary elements of a map
     }
 
@@ -56,6 +63,11 @@ public class GameMapManager {
 
     //to destroy a meteor
     public void destroyMeteor( Meteor meteor ) {
+
+        //score += meteor.getScore();
+        if( meteor instanceof UndestructibleMeteor );
+        else
+            noOfDestMeteors--;
 
         // iterate meteors via iterator loop
         for (  Meteor tmp : this.meteors ) {
@@ -113,14 +125,37 @@ public class GameMapManager {
         this.noOfLives += life;
     }
 
+    public ArrayList<Meteor> getMeteors() {
+        return meteors;
+    }
+
+    public Paddle getUserPaddle() {
+        return userPaddle;
+    }
+
+    public Paddle getEnemyPaddle() {
+        return enemyPaddle;
+    }
+
+    public ArrayList<Ball> getBalls(){
+        return balls;
+    }
+
+    public ArrayList<Bonus> getBonuses() {
+        return bonuses;
+    }
+
+    public ArrayList<Bonus> getActiveBonuses() {
+        return activeBonuses;
+    }
 
     // This method replaces all meteors in current level
     public void replaceMeteors() {
-
+        meteors = new ArrayList<Meteor>();
         String filename,line;
         int lineNum = 0;
 
-        filename = "./../../levels/level" + level + ".txt";
+        filename = "levels/level" + level + ".txt";
 
         Scanner fileIn = null;
         try {
@@ -138,31 +173,35 @@ public class GameMapManager {
 
                     //Alpha Meteor init
                     if (line.charAt(i) == 'A') {
-                        Meteor m_tmp = new AlphaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
+                        AlphaMeteor m_tmp = new AlphaMeteor((i + 1) * SCREEN_WIDTH / 20, (lineNum+1) * 30);
                         this.meteors.add(m_tmp);
+                        noOfDestMeteors++;
                     }
 
                     //Beta Meteor init
                     else if (line.charAt(i) == 'B') {
-                        Meteor m_tmp = new BetaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
+                        BetaMeteor m_tmp = new BetaMeteor((i + 1) * SCREEN_WIDTH / 20, (lineNum+1) * 30);
                         this.meteors.add(m_tmp);
+                        noOfDestMeteors++;
                     }
 
                     //Gamma Meteor init
                     else if (line.charAt(i) == 'G') {
-                        Meteor m_tmp = new GammaMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
+                        GammaMeteor m_tmp = new GammaMeteor((i + 1) * SCREEN_WIDTH / 20, (lineNum+1) * 30);
                         this.meteors.add(m_tmp);
+                        noOfDestMeteors++;
                     }
 
                     //Radiactive Meteor init
                     else if (line.charAt(i) == 'R') {
-                        Meteor m_tmp = new RadioactiveMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
+                        RadioactiveMeteor m_tmp = new RadioactiveMeteor((i + 1) * SCREEN_WIDTH / 20, (lineNum+1) * 30);
                         this.meteors.add(m_tmp);
+                        noOfDestMeteors++;
                     }
 
                     //Undestructable Meteor init
                     else if (line.charAt(i) == 'U') {
-                        Meteor m_tmp = new UndestructibleMeteor((i + 1) * SCREEN_WIDTH / 20, lineNum * 30);
+                        UndestructibleMeteor m_tmp = new UndestructibleMeteor((i + 1) * SCREEN_WIDTH / 20, (lineNum+1) * 30);
                         this.meteors.add(m_tmp);
                     }
                 }
@@ -195,7 +234,10 @@ public class GameMapManager {
     }
 
     public void controlEnemyPaddle() {
+        if( enemyPaddle != null ) {
+            if( balls.get(0).getxPosition() > enemyPaddle.getxPosition() );
 
+        }
     }
 
     public void activateGeglBonus() {
@@ -210,4 +252,20 @@ public class GameMapManager {
         return level;
     }
 
+    public int getNoOfDestMeteors() {
+        return noOfDestMeteors;
+    }
+
+    public static void main( String args[] ) throws IOException {
+
+        JLabel background = new JLabel("image/planet.jpg");
+        GameMapManager gmm = new GameMapManager( 1 );
+        GameCanvas m = new GameCanvas( gmm );
+        JFrame f=new JFrame();
+
+        //f.setContentPane(background);
+        f.add(m);
+        f.setSize(1440,900);
+        f.setVisible(true);
+    }
 }

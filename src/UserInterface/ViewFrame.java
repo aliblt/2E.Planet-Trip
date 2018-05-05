@@ -14,7 +14,7 @@ public ViewFrame(int screenWidth, int screenHeight)
 {
 }
 
-public JFrame setGameWindow()
+//public JFrame setGameWindow()
 {
 }
 
@@ -23,11 +23,11 @@ public void refresh()
 	
 }
 
-public Graphics getGraphics()
+//public Graphics getGraphics()
 {
 	
 }
-public ArrayList<Integer> getScreenSize()
+//public ArrayList<Integer> getScreenSize()
 {
 	
 }

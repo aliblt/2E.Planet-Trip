@@ -1,5 +1,5 @@
 /**
- * @Author: Aylin Çakal
+ * @Author: Aylin ï¿½akal
  * Date:    23/03/18
  * Class: OptionsPanel
  * */
@@ -50,7 +50,7 @@ public class OptionsPanel extends JPanel implements ActionListener
     
     final Label soundValue = new Label(
                                        Double.toString(adjustingVolumeButton.getValue()));
-    final static Color textColor = Color.WHITE;
+    //final static Color textColor = Color.WHITE;
     
     add(adjustingVolumeButton);
     adjustingVolumeButton.setBounds(230, 216, 330, 56);
@@ -59,8 +59,8 @@ public class OptionsPanel extends JPanel implements ActionListener
     adjustingVolumeButton.setFocusable(false);
     
     //Listener for Slider
-    SliderListener sliderListener = new SliderListener();
-    adjustingVolumeButton.addChangeListener(sliderListener);
+    //SliderListener sliderListener = new SliderListener();
+    //adjustingVolumeButton.addChangeListener(sliderListener);
     
     setBounds(0, 0, 600, 800);
     
@@ -76,4 +76,8 @@ public class OptionsPanel extends JPanel implements ActionListener
     return soundEffect;
  }
 
+  @Override
+  public void actionPerformed(ActionEvent e) {
+
+  }
 }

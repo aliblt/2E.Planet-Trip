@@ -33,10 +33,10 @@ public class Menu extends JPanel{
 
     public Menu() {
         viewFrame = new ViewFrame(800, 600);
-        currentPanel = new MainMenuPanel();
-        viewFrame.setContentPane(currentPanel);
+        //currentPanel = new MainMenuPanel();
+        //viewFrame.setContentPane(currentPanel);
     }
-
+    /*
     public void switchPanel( JPanel newPanel ){
         viewFrame.getContentPane().remove(currentPanel);
         viewFrame.add(newPanel);
@@ -65,4 +65,5 @@ public class Menu extends JPanel{
         viewFrame.setVisible(false);
 
     }
+    */
 }

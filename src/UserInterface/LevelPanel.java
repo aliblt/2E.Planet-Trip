@@ -13,7 +13,7 @@ public class LevelPanel {
 	private JButton startButton;
 	private GameEngine gameEngine;
 	
-	public LevelPanel(MenuActionListener listener)
+	//public LevelPanel(MenuActionListener listener)
 	{
 		
 	}

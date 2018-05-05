@@ -8,7 +8,8 @@ public class HowToPlayPanel {
 	 */
 	private JButton returnMenuButton;
 
-	public HowToPlayPanel(MenuActionListener listener) {
+	//public HowToPlayPanel(MenuActionListener listener)
+	{
 		
 }
 }
