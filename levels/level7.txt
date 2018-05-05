@@ -1,0 +1,12 @@
+
+GG  B    A  BB  GGG
+G G B   A A B B  G
+GG  B   AAA B B  G
+G   B   A A B B  G
+G   BBB A A B B  G
+
+ RRR RR   R  RR
+  R  R R  R  R R
+  R  RR   R  RR
+  R  R R  R  R
+  R  R R  R  R
