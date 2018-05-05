@@ -1,12 +1,6 @@
 package GameManagement;
 
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.awt.*;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class GameObject {
@@ -15,12 +9,14 @@ public class GameObject {
     private float xSpeed;
     private float ySpeed;
     private BufferedImage objectImages;
+    private String imagePath;
 
     public GameObject(float xPosition, float yPosition, float xSpeed, float ySpeed, String imagePath ) throws IOException {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
+        this.imagePath = imagePath;
         //this.objectImages = ImageIO.read(getClass().getClassLoader().getResourceAsStream("images/paddle.png"));
         //this.objectImages = ImageIO.read(new File("images/paddle.png" ));
     }
@@ -55,6 +51,10 @@ public class GameObject {
 
     public float getySpeed(){
         return ySpeed;
+    }
+
+    public String getImagePath() {
+        return this.imagePath;
     }
 
     public BufferedImage getObjectImages() {

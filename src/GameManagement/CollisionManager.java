@@ -35,17 +35,25 @@ public class CollisionManager {
 
         float deltaX = Math.abs(circleX - rectX);
         float deltaY = Math.abs(circleY - rectY);
+        double dist = Math.sqrt( deltaX*deltaX + deltaY*deltaY );
 
-        if (deltaX*deltaX + deltaY*deltaY < circleRadius*circleRadius) {
-            if( Math.asin(deltaY/deltaX) < Math.asin(5.0/12.0) )
-                ball.setxSpeed( ball.getxSpeed() * -1 );
-            else
-                ball.setySpeed( ball.getySpeed() * -1 );
-
-            return true;
-        }
-        else
+        if( dist >= 52 )
             return false;
+
+        if( Math.asin(deltaY/deltaX) < Math.asin(5.0/13.0) ) {
+            if( deltaX < 49) {
+                ball.setxSpeed(ball.getxSpeed() * -1);
+                return true;
+            }
+        }
+        else {
+            if( deltaY < 28 ) {
+                ball.setySpeed(ball.getySpeed() * -1);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     //Checks the collision between ball and paddle

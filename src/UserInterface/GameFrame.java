@@ -1,5 +1,6 @@
-package GameManagement;
+package UserInterface;
 
+import GameManagement.GameEngine;
 import UserInterface.GameCanvas;
 import controller.InputManager;
 
@@ -19,7 +20,7 @@ public class GameFrame extends JFrame{
 
         JLabel background = new JLabel("image/planet.jpg");
         this.gameEngine = gameEngine;
-        gameCanvas = new GameCanvas( this.gameEngine.getGameMapManager() );
+        gameCanvas = new GameCanvas( this.gameEngine );
 
         gameFrame=new JFrame();
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,7 +28,7 @@ public class GameFrame extends JFrame{
         gameFrame.add(this.gameCanvas);
         gameFrame.setSize(1440,900);
         gameFrame.setVisible(true);
-        gameFrame.addKeyListener( new InputManager( gameEngine.getGameMapManager().getUserPaddle(), gameEngine.getGameMapManager().getBalls().get(0)));
+        gameFrame.addKeyListener( new InputManager( gameEngine ));
     }
 
     public JFrame getGameFrame() {

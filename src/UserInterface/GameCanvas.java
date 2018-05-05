@@ -11,17 +11,19 @@ public class GameCanvas extends Canvas {
 	Image BetaIm=t.getImage("images/BetaMeteor.png");
 	Image GammaIm=t.getImage("images/GammaMeteor.png");
 	Image RadioactiveIm=t.getImage("images/RadioactiveMeteor.png");
-	Image UndestructibleIm=t.getImage("images/RadioactiveMeteor.png"); //to be changed with undest
+	Image UndestructibleIm=t.getImage("images/UndestructibleMeteor.png");
 	Image paddleIm=t.getImage("images/paddle.png");
 	Image ballIm=t.getImage("images/ball.png");
 	Image lifeIm=t.getImage("images/life.png");
 	Image backgroundIm = t.getImage("images/background.jpeg");
 
 	private GameMapManager gameMapManager;
+	private GameEngine gameEngine;
 	private int counter = 0;
 
-	public GameCanvas(GameMapManager gameMapManager ) {
-	    this.gameMapManager = gameMapManager;
+	public GameCanvas(GameEngine gameEngine ) {
+	    this.gameEngine = gameEngine;
+	    this.gameMapManager = gameEngine.getGameMapManager();
     }
 
 	private void createRepaintTimer(final JFrame frame) {
@@ -68,8 +70,8 @@ public class GameCanvas extends Canvas {
 			g.drawImage(lifeIm, 1400-i*50, 15, this);
 
 		g.drawImage(paddleIm, (int) gameMapManager.getUserPaddle().getxPosition(), (int)gameMapManager.getUserPaddle().getyPosition(), this);
-		g.drawImage(ballIm, (int)gameMapManager.getBalls().get(0).getxPosition()-16, (int)gameMapManager.getBalls().get(0).getyPosition()-16, this);
-
+		g.drawImage(ballIm, (int)gameMapManager.getBalls().get(0).getxPosition()-13, (int)gameMapManager.getBalls().get(0).getyPosition()-13, this);
+        g.drawString( gameEngine.getStopWatch().toString(), 100, 20);
 	}
 
 }

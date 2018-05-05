@@ -1,9 +1,8 @@
 package GameManagement;
 
-import UserInterface.GameCanvas;
+import UserInterface.GameFrame;
 import controller.InputManager;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class GameEngine{
@@ -11,25 +10,39 @@ public class GameEngine{
     ////////ATTRIBUTES////////
     private GameMapManager gameMapManager;
     private boolean paused;
-    private static int totalScore = 0;
+    private int totalScore = 0;
     private InputManager inputManager;
     private boolean acquiredBonusLevel;
     private GameFrame gameFrame;
     private int counter;
+    private StopWatch stopWatch;
 
     ////////CONSTRUCTOR////////
     public GameEngine(int level) throws IOException{
         paused = false;
+        stopWatch = new StopWatch();
         counter = 0;
         gameMapManager = new GameMapManager(level);
         //inputManager = new InputManager( gameMapManager.getUserPaddle(), gameMapManager.getBalls().get(0) );
         gameFrame = new GameFrame( this );
+        stopWatch.start();
         gameLoop();
     }
 
     ////////METHODS////////
     public void gameLoop(){
+        boolean nextLevel = false;
         while( hasLive() ) {
+
+            if( this.paused ) {
+                try {
+                    Thread.sleep(1000/100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                continue;
+            }
+
             counter++;
             if( counter %5 == 0 ) {
                 gameMapManager.destroyToBeDestroyed();
@@ -37,7 +50,8 @@ public class GameEngine{
             }
             gameMapManager.updateBall();
             gameMapManager.updatePaddle();
-            gameMapManager.checkCollisions();
+            if( gameMapManager.getBalls().get(0).getySpeed() != 0 || gameMapManager.getBalls().get(0).getxSpeed() != 0 )
+                gameMapManager.checkCollisions();
             //add repaint
             gameFrame.getGameCanvas().repaint();
             try {
@@ -47,8 +61,18 @@ public class GameEngine{
             }
             //System.out.println("SA");
 
-            if( levelPassed() )
-                skipNextLevel();
+            if( levelPassed() ) {
+                nextLevel = true;
+                System.out.println("BITTI");
+                break;
+            }
+        }
+        this.stopWatch.pause();
+        System.out.println(stopWatch.toString());
+        if( nextLevel )
+            skipNextLevel();
+        else{
+            System.out.println("GAME OVER");
         }
     }
 
@@ -62,14 +86,17 @@ public class GameEngine{
 
     public void skipNextLevel(){
         totalScore += gameMapManager.getScore();
-        if (gameMapManager.getLevel() < 8) {
+        if (this.gameMapManager.getLevel() < 8) {
             try {
-                gameMapManager = new GameMapManager(gameMapManager.getLevel() + 1);
+                int newLevel = gameMapManager.getLevel()+1;
+                this.gameMapManager = new GameMapManager(newLevel);
+                this.gameFrame = new GameFrame(this);
+                gameLoop();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        else if (gameMapManager.getLevel() == 8)
+        else if (this.gameMapManager.getLevel() == 8)
             endGame();
     }
 
@@ -86,11 +113,23 @@ public class GameEngine{
     }
 
     public void endGame(){
+        System.out.println("GAME HAS ENDED");
+    }
 
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public int getTotalScore() {
+        return totalScore + gameMapManager.getScore();
     }
 
     public GameFrame getGameFrame() {
         return gameFrame;
+    }
+
+    public StopWatch getStopWatch() {
+        return stopWatch;
     }
 
     public GameMapManager getGameMapManager() {

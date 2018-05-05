@@ -5,12 +5,9 @@
 
 package GameManagement;
 
-import UserInterface.*;
-
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
 
 public class GameMapManager {
 
@@ -35,7 +32,7 @@ public class GameMapManager {
     //private CollisionManager collisionManager;
 
     //first initialization of the level
-    public GameMapManager( int level ) throws IOException{
+    public GameMapManager( int level ) throws IOException {
         this.level = level;
         this.noOfLives = 3;
         this.score = 0;
@@ -43,21 +40,32 @@ public class GameMapManager {
         this.activeBonuses = new ArrayList<Bonus>();
         this.bonuses = new ArrayList<Bonus>();
         this.toBeDestructed = new ArrayList<Meteor>();
+        startTime = System.currentTimeMillis();
 
         this.replaceMeteors();
-        //this.collisionManager = CollisionManager.getCollisionManager();
+
+        bonuses = new ArrayList<Bonus>();
+        activeBonuses = new ArrayList<Bonus>();
+        for (int i = 0; i < 10; i++) {
+            this.meteors.get(randomFill(this.meteors.size())).setBonusNo(randomFill(6));
+        }
 
         // initializing user paddle
-        userPaddle = new Paddle(700, 720, 200);
+        userPaddle = new Paddle(700, 722, 200);
         balls = new ArrayList<Ball>();
-        balls.add(new Ball(770, 711,0, 0, 13) );
-        // ToDo initialize all necessary elements of a map
+        balls.add(new Ball(770, 707, 0, 0, 13));
+    }
+
+    public int randomFill( int k ){
+        Random rand = new Random();
+        int randomNum = Math.abs(rand.nextInt())%(k);
+        return randomNum;
     }
 
     public void updatePaddle() {
-
-        userPaddle.setxPosition( userPaddle.getxPosition() + userPaddle.getxSpeed());
-        userPaddle.setyPosition( userPaddle.getyPosition() + userPaddle.getySpeed());
+        if( userPaddle.getxPosition()+userPaddle.getxSpeed() >= 0 &&  userPaddle.getxPosition()+userPaddle.getxSpeed() <= 1440-userPaddle.getPaddleLength() )
+            userPaddle.setxPosition( userPaddle.getxPosition() + userPaddle.getxSpeed());
+        //userPaddle.setyPosition( userPaddle.getyPosition() + userPaddle.getySpeed());
     }
 
     public void updateBall() {
@@ -89,11 +97,12 @@ public class GameMapManager {
             return;
 
         score += meteor.getScore();
-        System.out.println(score);
-        if( meteor instanceof UndestructibleMeteor );
-        else
-            noOfDestMeteors--;
+        //System.out.println(score);
+        if( meteor instanceof UndestructibleMeteor )
+            return;
 
+        noOfDestMeteors--;
+        //System.out.println(noOfDestMeteors);
         // iterate meteors via iterator loop
 
         this.meteors.remove( meteor );
@@ -108,10 +117,6 @@ public class GameMapManager {
             findMeteorAt( meteor.getxPosition()-72, meteor.getyPosition()+30 ); //solalt
             findMeteorAt( meteor.getxPosition()-72, meteor.getyPosition()-30 ); //solust
         }
-    }
-
-    // to set new direction to ball
-    public void reflectBall( Ball ball ) {
 
     }
 
@@ -119,11 +124,11 @@ public class GameMapManager {
         noOfLives--;
         Ball b = balls.get(0);
         b.setxPosition(770);
-        b.setyPosition(711);
+        b.setyPosition(707);
         b.setxSpeed(0);
         b.setySpeed(0);
         userPaddle.setxPosition(700);
-        userPaddle.setyPosition(720);
+        userPaddle.setyPosition(722);
     }
 
     // checks all possible collisions
@@ -132,7 +137,7 @@ public class GameMapManager {
         for( Ball b : this.balls )
             for( Meteor m : this.meteors ) {
                 if( CollisionManager.getCollisionManager().checkMeteorBallCollision( m, b ) ) {
-                    System.out.println("CARPTIM XD");
+                    //System.out.println("CARPTIM XD");
                     destroyMeteor(m);
                     break;
                 }
@@ -277,18 +282,17 @@ public class GameMapManager {
     }
 
     public void increaseBallSpeed( ) {
-
+        balls.get(0).setxSpeed((float) (balls.get(0).getxSpeed() * 1.5));
+        balls.get(0).setySpeed((float) (balls.get(0).getySpeed() * 1.5));
     }
 
     public void activateEnemyPaddle( ) {
         if ( enemyPaddle == null ) {
             try {
-                enemyPaddle  = new Paddle( 700, 30, 5);
+                enemyPaddle  = new Paddle( 700, 20, 100);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            //display enemy paddle
         }
     }
 
@@ -318,7 +322,7 @@ public class GameMapManager {
     public int getNoOfDestMeteors() {
         return noOfDestMeteors;
     }
-
+    /*
     public static void main( String args[] ) throws IOException {
 
         JLabel background = new JLabel("image/planet.jpg");
@@ -332,4 +336,5 @@ public class GameMapManager {
         f.setSize(1440,900);
         f.setVisible(true);
     }
+    */
 }
