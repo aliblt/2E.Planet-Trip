@@ -1,52 +1,75 @@
 package GameManagement;
 
+import UserInterface.GameCanvas;
+import controller.InputManager;
+
 import javax.swing.*;
 import java.io.IOException;
-import java.util.*;
-import java.awt.*;
-import java.awt.event.*;
 
-public class GameEngine extends GameFrame{
-
+public class GameEngine{
 
     ////////ATTRIBUTES////////
-
     private GameMapManager gameMapManager;
-
     private boolean paused;
-
-    //private FileManager fileManager;
-
+    private static int totalScore = 0;
+    private InputManager inputManager;
     private boolean acquiredBonusLevel;
-
+    private GameFrame gameFrame;
+    private int counter;
 
     ////////CONSTRUCTOR////////
-
     public GameEngine(int level) throws IOException{
         paused = false;
+        counter = 0;
         gameMapManager = new GameMapManager(level);
-
+        //inputManager = new InputManager( gameMapManager.getUserPaddle(), gameMapManager.getBalls().get(0) );
+        gameFrame = new GameFrame( this );
+        gameLoop();
     }
-
 
     ////////METHODS////////
-
     public void gameLoop(){
+        while( hasLive() ) {
+            counter++;
+            if( counter %5 == 0 ) {
+                gameMapManager.destroyToBeDestroyed();
+                counter = 0;
+            }
+            gameMapManager.updateBall();
+            gameMapManager.updatePaddle();
+            gameMapManager.checkCollisions();
+            //add repaint
+            gameFrame.getGameCanvas().repaint();
+            try {
+                Thread.sleep(1000/60);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //System.out.println("SA");
 
+            if( levelPassed() )
+                skipNextLevel();
+        }
     }
-    /*
+
     public boolean levelPassed(){
-        return (getNoOfDestMeteors() == 0);
+        return ( gameMapManager.getNoOfDestMeteors() == 0);
     }
 
     public boolean hasLive(){
-       return (0 != getHealthValue());
+       return 0 != gameMapManager.getNoOfLives();
     }
 
     public void skipNextLevel(){
-        if (gameMapManager.getLevel() < 7)
-            gameMapManager = new GameMapManager(gameMapManager.getLevel() + 1);
-        else if (gameMapManager.getLevel() == 7)
+        totalScore += gameMapManager.getScore();
+        if (gameMapManager.getLevel() < 8) {
+            try {
+                gameMapManager = new GameMapManager(gameMapManager.getLevel() + 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (gameMapManager.getLevel() == 8)
             endGame();
     }
 
@@ -58,10 +81,41 @@ public class GameEngine extends GameFrame{
         paused = false;
     }
 
-    public void startGame(){}
+    public void startGame(){
 
-    public void endGame(){}
+    }
 
-    public BufferedImage getImage(){}
-    */
+    public void endGame(){
+
+    }
+
+    public GameFrame getGameFrame() {
+        return gameFrame;
+    }
+
+    public GameMapManager getGameMapManager() {
+        return gameMapManager;
+    }
+
+    public static void main(String args[] ) {
+        try {
+            new GameEngine( 1 );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*
+        GameEngine ge = null;
+        try {
+            ge = new GameEngine( 1 );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JFrame f=new JFrame();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //f.add(ge.getGameCanvas());
+        f.setSize(1440,900);
+        f.setVisible(true);
+        */
+    }
 }

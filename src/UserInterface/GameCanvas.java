@@ -18,14 +18,33 @@ public class GameCanvas extends Canvas {
 	Image backgroundIm = t.getImage("images/background.jpeg");
 
 	private GameMapManager gameMapManager;
+	private int counter = 0;
 
 	public GameCanvas(GameMapManager gameMapManager ) {
 	    this.gameMapManager = gameMapManager;
     }
 
+	private void createRepaintTimer(final JFrame frame) {
+		final Timer timer = new Timer(15, null);
+
+		timer.addActionListener(e -> {
+			if (!frame.isVisible()) {
+				timer.stop();
+			} else {
+				frame.repaint();
+			}
+		});
+
+		timer.start();
+	}
+
+    @Override
 	public void paint(Graphics g) {
 
 		g.drawImage( backgroundIm, 0, 0, this);
+
+		counter ++;
+		//g.drawImage( RadioactiveIm, 20*counter+10, 20, this );
 
 		for (Meteor m : gameMapManager.getMeteors() ) {
 
@@ -44,8 +63,12 @@ public class GameCanvas extends Canvas {
 			g.drawImage(i, (int) m.getxPosition(), (int) m.getyPosition(), this);
 		}
 
+		int remaining = gameMapManager.getNoOfLives();
+		for( int i=0 ; i<remaining && i<5 ; i++ )
+			g.drawImage(lifeIm, 1400-i*50, 15, this);
+
 		g.drawImage(paddleIm, (int) gameMapManager.getUserPaddle().getxPosition(), (int)gameMapManager.getUserPaddle().getyPosition(), this);
-		g.drawImage(ballIm, (int)gameMapManager.getBalls().get(0).getxPosition(), (int)gameMapManager.getBalls().get(0).getyPosition(), this);
+		g.drawImage(ballIm, (int)gameMapManager.getBalls().get(0).getxPosition()-16, (int)gameMapManager.getBalls().get(0).getyPosition()-16, this);
 
 	}
 

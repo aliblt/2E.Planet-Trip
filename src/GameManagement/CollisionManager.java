@@ -28,24 +28,36 @@ public class CollisionManager {
         float circleX = ball.getxPosition();
         float circleY = ball.getyPosition();
         float circleRadius = ball.getRadius();
-        float rectX = meteor.getxPosition();
-        float rectY = meteor.getyPosition();
-        float rectWidth = meteor.getObjectImages().getWidth();
-        float rectHeight = meteor.getObjectImages().getHeight();
+        float rectX = meteor.getxPosition()+36;
+        float rectY = meteor.getyPosition()+15;
+        float rectWidth = 72;
+        float rectHeight = 30;
 
-        float deltaX = circleX - Math.max(rectX, Math.min(circleX, rectX+rectWidth));
-        float deltaY = circleY - Math.max(rectY, Math.min(circleY, rectY+rectHeight));
+        float deltaX = Math.abs(circleX - rectX);
+        float deltaY = Math.abs(circleY - rectY);
 
-        return (deltaX*deltaX + deltaY*deltaY < circleRadius*circleRadius);
+        if (deltaX*deltaX + deltaY*deltaY < circleRadius*circleRadius) {
+            if( Math.asin(deltaY/deltaX) < Math.asin(5.0/12.0) )
+                ball.setxSpeed( ball.getxSpeed() * -1 );
+            else
+                ball.setySpeed( ball.getySpeed() * -1 );
+
+            return true;
+        }
+        else
+            return false;
     }
 
     //Checks the collision between ball and paddle
     //In this function, we are checking only y-values
     public boolean checkPaddleBallCollision(Paddle paddle, Ball ball){
         float ballYBottom = ball.getyPosition() + ball.getRadius();
+        float ballX = ball.getxPosition();
         float paddleY = paddle.getyPosition();
+        float paddleXBeg = paddle.getxPosition();
+        float paddleXEnd = paddle.getxPosition()+paddle.getPaddleLength();
 
-        return !(ballYBottom < paddleY);
+        return (ballYBottom >= paddleY && ballX >= paddleXBeg && ballX <= paddleXEnd );
     }
 
     //Checks the collision between bonus and paddle
@@ -70,12 +82,16 @@ public class CollisionManager {
         float ballY = ball.getyPosition();
         float ballRadius = ball.getRadius();
 
-        boolean isBallBelow = ballY - ballRadius <= 0;
-        boolean isBallAbove = ballY + ballRadius >= screenHeight;
-        boolean isBallAtLeft = ballX - ballRadius <= 0;
-        boolean isBallAtRight = ballX + ballRadius >= screenWidth;
+        if( ballY + ballRadius >= screenHeight )
+            return true;
 
-        return isBallAtLeft || isBallBelow || isBallAbove || isBallAtRight;
+        if( ballY - ballRadius <= 25 )
+            ball.setySpeed( ball.getySpeed() * -1 );
+
+        if( ballX - ballRadius <= 0 || ballX + ballRadius >= screenWidth)
+            ball.setxSpeed( ball.getxSpeed() * -1 );
+
+        return false;
     }
 
     //Checks the collision between Gegl and laser

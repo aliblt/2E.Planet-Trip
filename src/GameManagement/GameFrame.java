@@ -1,57 +1,40 @@
 package GameManagement;
 
+import UserInterface.GameCanvas;
+import controller.InputManager;
+
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class GameFrame extends JFrame{
 
     private GameEngine gameEngine;
+    private Canvas gameCanvas;
     private JPanel contentPanel;
-    private JFrame frame;
+    private JFrame gameFrame;
     private ImageIcon[] objectImages;
     private JLabel[] objectLabels;
 
-    public GameFrame() throws IOException{
-        frame = new JFrame("Planet Trip");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(1280, 720);
+    public GameFrame( GameEngine gameEngine ) {
 
-        //gameEngine = new GameEngine();
-        frame.setLayout(null);
-        objectImages = new ImageIcon[10];
-        objectLabels = new JLabel[10];
-        objectImages[1] = new ImageIcon("images/paddle.png");
-        objectLabels[1] = new JLabel(objectImages[1]);
-        objectLabels[1].setLocation(640,600);
-        objectLabels[1].setSize(180,25);
+        JLabel background = new JLabel("image/planet.jpg");
+        this.gameEngine = gameEngine;
+        gameCanvas = new GameCanvas( this.gameEngine.getGameMapManager() );
 
-        objectImages[0] = new ImageIcon("images/planet.png");
-        objectLabels[0] = new JLabel(objectImages[0], JLabel.CENTER);
-        objectLabels[0].setLocation(2,2);
-        objectLabels[0].setSize(1000,710);
+        gameFrame=new JFrame();
+        gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.add(objectLabels[1]);
-        frame.add(objectLabels[0]);
-
-        frame.setVisible(true);
+        gameFrame.add(this.gameCanvas);
+        gameFrame.setSize(1440,900);
+        gameFrame.setVisible(true);
+        gameFrame.addKeyListener( new InputManager( gameEngine.getGameMapManager().getUserPaddle(), gameEngine.getGameMapManager().getBalls().get(0)));
     }
 
-    public void displayContents() {
-
+    public JFrame getGameFrame() {
+        return gameFrame;
     }
 
-    //for test purpose
-    public static void main(String[] args) {
-        //EventQueue.invokeLater(new Runnable() {
-            //public void run() {
-                try {
-                    new GameFrame();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            //}
-        //});
+    public Canvas getGameCanvas() {
+        return gameCanvas;
     }
 }
