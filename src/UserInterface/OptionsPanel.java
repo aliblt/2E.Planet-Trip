@@ -1,9 +1,10 @@
 /**
- * @Author: Aylin �akal
+ * @Author: Aylin Çakal
  * Date:    23/03/18
  * Class: OptionsPanel
  * */
-package UserInterface;
+package planetTrip.UserInterface;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import javax.swing.*;
@@ -50,6 +51,7 @@ public class OptionsPanel extends JPanel implements ActionListener
     
     final Label soundValue = new Label(
                                        Double.toString(adjustingVolumeButton.getValue()));
+
     //final static Color textColor = Color.WHITE;
     
     add(adjustingVolumeButton);

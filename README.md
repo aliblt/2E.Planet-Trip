@@ -1,6 +1,6 @@
-Quiz Game for CS 319 Project
+Planet Trip for CS 319 Project
 
-Project Name: Who Doesn't Want to be a Zillionaire Anyway 
+Project Name: Planet Trip
 
 
 Group Members (Group 2E):
@@ -16,20 +16,38 @@ Ismail Serdar Taskafa
 
 Description of the Project: 
 
-This project will be remake of classic the TV show "Who Wants to be a Billionaire". 
-The development process will heavily build upon object oriented programming, allowing us to learn and practice the principles. We will use Java for coding, yet it may change in the future.
+PlanetTrip is a Java game we have chosen as our project. The game is inspired by by
+Javanoid type arcade games. In such games, there is a map of meteors, a paddle and a ball.
+Using paddle, player is supposed to give direction to ball and destroy all the meteors by
+hitting them. Those bricks have different stiffness and some of them are harder to destroy
+than others. 
 
 Description of the Game:
 
-General: “Who Doesn't Want to be a Zillionaire Anyway” is a single-player game, which you answer questions to earn more points. With each right answer you skip to the next question, and any wrong answer will finish the game immediately. To win the game, you have to give the correct answers to 15 questions.
+“PlanetTrip” is a single player game. After selecting Play Game in main menu, user
+can decide to play with any of nine levels and they are ordered with respect to their
+challenges. In each level, user is presented with a map and meteors in it. They will move the
+paddle by keyboard to direct the ball and not let it fall through the void. If ball falls, user will
+lose one life and game will end if user has exhausted all their lives. Level will conclude and
+next level will be unlocked if user hits and destroys all meteors.
 
-Controls: For answering the question, the player can either type the letter A, B, C, D; or click on one of four answers. For using a lifeline, the player has to click on the lifeline symbol and then choose the one to be used. 
-
-Level Selection: Before starting the game, the user can select the difficulty of the game with the buttons such as "Easy", "Medium", "Hard".
-
-Gameplay: On the right side, the game provides 3 lifelines. They are “audience” that generates a random answer that possible correct one for the question, “calling” that allows the user to ask one person what s/he thinks the correct answer is and “50:50” that eliminates two of the possible wrong answers. The user has to use them only once. The game continues as long as the user gives a correct answer. The questions become difficult towards the end.
+In scenario, player will travel across the solar system, starting from Neptune to
+the Sun. Each planet is a different level and player can see the respective planet in the
+background. When player clears all meteors on the map, they can see the planet in its full
+entirety and continue with the next level. As the player progresses with game, levels will be
+more challenging to keep the sense of engagement. Currently game will have the following
+features:
+- Single Player Mode
+- Level Selection [from Neptune to Sun]
+We have chosen Java as our language for development because all group members are
+experienced with that and it is a powerful language that supports principles of object oriented
+programming. Using these principles will make our software easier to maintain and to add
+new features without disrupting all parts of the program. We believe this project will be a
+good exercise to learn and practice these principles. Moreover, developing a desktop
+application with an UI component using Java is more straightforward compared to C/C++.
 
 Reference Link to a Similar Game:
 
-Who wants to be a millionaire:  http://www.puffgames.com/whowantstobeamillionaire/
+https://www.kongregate.com/games/miotis2004/block-breaker
 
+Meeting Logs: https://docs.google.com/document/d/19Y6HrAa_fDvwYf8_2WBKLZEgST08Y-a-xasY4h3wSpU/edit?usp=sharing
