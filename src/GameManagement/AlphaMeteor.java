@@ -9,10 +9,14 @@ import java.io.IOException;
  */
 public class AlphaMeteor extends DestructibleMeteor {
     // Constants
-    public static int SCORE_RADIOACTIVE = 100;  // Score is set to 100 as default.
+    public static final int SCORE_ALPHA = 100;  // Score is set to 100 as default.
 
     // Constructor
     public AlphaMeteor(float xPosition, float yPosition) throws IOException {
         super(xPosition, yPosition, "images/AlphaMeteor.png");
+    }
+
+    public int getScore() {
+        return SCORE_ALPHA;
     }
 }

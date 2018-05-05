@@ -9,10 +9,14 @@ import java.io.IOException;
  */
 public class GammaMeteor extends DestructibleMeteor{
     // Constants
-    public static int SCORE_GAMMA = 300;  // Score is set to 300 as default.
+    public static final int SCORE_GAMMA = 300;  // Score is set to 300 as default.
 
     // Constructor
     public GammaMeteor(float xPosition, float yPosition) throws IOException {
         super(xPosition, yPosition, "images/GammaMeteor.png");
+    }
+
+    public int getScore() {
+        return SCORE_GAMMA;
     }
 }
